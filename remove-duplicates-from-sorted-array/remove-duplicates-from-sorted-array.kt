@@ -1,17 +1,14 @@
 class Solution {
     fun removeDuplicates(nums: IntArray): Int {
-        var count = 1
-        var currentPos = 0
+     
+        var count = 0
         for(i in 1..nums.size-1){
-            val secondNum = nums[i]
-            if(secondNum > nums[currentPos]){
-                count++
-                currentPos++
-                nums[currentPos] = secondNum 
-            } 
+            if(nums[i] > nums[i-1]){
+                nums[++count] = nums[i]
+            }
         }
         
-        return count
+        return ++count
         
     }
 }

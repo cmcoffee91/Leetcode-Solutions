@@ -7,26 +7,26 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<pre><strong>Input:</strong> prices = [7,1,5,3,6,4]
+<pre style="position: relative;"><strong>Input:</strong> prices = [7,1,5,3,6,4]
 <strong>Output:</strong> 7
 <strong>Explanation:</strong> Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
 Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong>Example 2:</strong></p>
 
-<pre><strong>Input:</strong> prices = [1,2,3,4,5]
+<pre style="position: relative;"><strong>Input:</strong> prices = [1,2,3,4,5]
 <strong>Output:</strong> 4
 <strong>Explanation:</strong> Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.
 Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are engaging multiple transactions at the same time. You must sell before buying again.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong>Example 3:</strong></p>
 
-<pre><strong>Input:</strong> prices = [7,6,4,3,1]
+<pre style="position: relative;"><strong>Input:</strong> prices = [7,6,4,3,1]
 <strong>Output:</strong> 0
 <strong>Explanation:</strong> In this case, no transaction is done, i.e., max profit = 0.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

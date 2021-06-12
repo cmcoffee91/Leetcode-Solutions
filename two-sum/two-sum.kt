@@ -1,21 +1,23 @@
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {
-        val map = HashMap<Int, Int>()
-        for( i in 0 until nums.size){
-            val complement = target - nums[i]
+        var map = HashMap<Int,Int>()
+        
+        for(i in 0 until nums.size){
+            var complement = target - nums[i]
             map?.let{
-                if(it.containsKey(complement)){
-                    it[complement]?.let{num -> 
-                        return intArrayOf(i, num)
+               if(it.containsKey(complement)){
+                    it[complement]?.let{ myVal ->
+                        return intArrayOf(i, myVal)
                     }
                 }
                 else{
-                    it[ nums[i] ] = i
+                    it[nums[i]] = i
                 }
             }
             
         }
         
         return IntArray(2)
+        
     }
 }

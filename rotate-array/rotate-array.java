@@ -1,14 +1,20 @@
 class Solution {
     public void rotate(int[] nums, int k) {
-        int length = nums.length;
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for(int i = 0;i < length;i++){
-            int current = nums[i]; 
-            map.put((i+k) % length, current);
-        }
         
-        for(int i = 0;i < length;i++){
-            nums[i] = map.get(i);
+        k %= nums.length;
+        
+        reverse(nums, 0, nums.length-1);
+        reverse(nums, 0, k-1);
+        reverse(nums, k, nums.length-1);
+    }
+    
+    public void reverse(int[] nums, int start, int end){
+        while(start<end){
+            int prev = nums[start];
+            nums[start] = nums[end];
+            nums[end] = prev;
+            start++;
+            end--;
         }
     }
 }

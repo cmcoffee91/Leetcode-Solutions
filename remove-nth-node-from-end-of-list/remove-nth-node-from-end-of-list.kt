@@ -9,24 +9,28 @@
  */
 class Solution {
     fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
+        
         var dummy = ListNode(-1)
         dummy.next = head
         
         var tmp = dummy.next
         var size = 0
-        while( tmp != null ) {
+        
+        while(tmp != null){
             tmp = tmp.next
             size++
         }
         
         size -= n
+        
         tmp = dummy
         while(size > 0){
-            tmp = tmp.next
             size--
+            tmp = tmp.next
         }
-        tmp.next = tmp.next.next
-        return dummy.next
         
+        tmp.next = tmp.next.next
+        
+        return dummy.next
     }
 }

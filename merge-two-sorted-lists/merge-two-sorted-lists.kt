@@ -9,36 +9,30 @@
  */
 class Solution {
     fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? {
-        var dummy = ListNode(-1)
-        var l1Tmp = l1
-        var l2Tmp = l2
-        var tmp = dummy
-        while(l1Tmp != null && l2Tmp != null){
-            val valOne = l1Tmp.`val`
-            val valTwo = l2Tmp.`val`
-            if(valOne < valTwo){
-                tmp?.next = ListNode(valOne)
-                l1Tmp = l1Tmp?.next
+        
+        val dummy = ListNode(-1)
+        
+        var merged = dummy
+        
+        var one = l1
+        var two = l2
+        
+        while(one != null && two != null){
+            if(one.`val` < two.`val`){
+                merged.next = one
+                one = one.next
             }
             else{
-                tmp?.next = ListNode(valTwo)
-                l2Tmp = l2Tmp?.next
+                merged.next = two
+                two = two.next
             }
-            tmp = tmp.next
+            merged = merged.next
         }
         
-        while(l1Tmp != null){
-            tmp.next = ListNode(l1Tmp.`val`)
-            l1Tmp = l1Tmp?.next
-            tmp = tmp?.next
-        }
-        
-        while(l2Tmp != null){
-            tmp.next = ListNode(l2Tmp.`val`)
-            l2Tmp = l2Tmp?.next
-            tmp = tmp?.next
-        }
+        merged.next = if(one != null) one else two
         
         return dummy.next
+    
+        
     }
 }

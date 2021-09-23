@@ -1,4 +1,4 @@
-<h2>24. Swap Nodes in Pairs</h2><h3>Medium</h3><hr><div><p>Given a&nbsp;linked list, swap every two adjacent nodes and return its head.</p>
+<h2>24. Swap Nodes in Pairs</h2><h3>Medium</h3><hr><div><p>Given a&nbsp;linked list, swap every two adjacent nodes and return its head. You must solve the problem without&nbsp;modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -26,6 +26,4 @@
 	<li>The number of nodes in the&nbsp;list&nbsp;is in the range <code>[0, 100]</code>.</li>
 	<li><code>0 &lt;= Node.val &lt;= 100</code></li>
 </ul>
-
-<p>&nbsp;</p>
-<strong>Follow up:</strong> Can you solve the problem without&nbsp;modifying the values in the list's nodes? (i.e., Only nodes themselves may be changed.)</div>
+</div>

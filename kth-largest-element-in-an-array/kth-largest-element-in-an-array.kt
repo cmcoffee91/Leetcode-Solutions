@@ -1,6 +1,10 @@
 class Solution {
     fun findKthLargest(nums: IntArray, k: Int): Int {
-        val pq = PriorityQueue<Int>{ a: Int,b: Int -> a - b }
+        
+        //[3,2,1,5,6,4]
+        // 5 6 
+        
+        val pq = PriorityQueue<Int>()
         for(num in nums){
             pq.offer(num)
             if(pq.size > k)pq.poll()

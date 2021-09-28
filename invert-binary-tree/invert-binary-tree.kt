@@ -10,16 +10,13 @@
  */
 class Solution {
     fun invertTree(root: TreeNode?): TreeNode? {
+        if(root == null) return null
         
-        if(root == null) return root
-        val left = root.left
-        val right = root.right
-        root.left = right 
-        root.right = left 
-        invertTree(root.left)
-        invertTree(root.right)
-       
+        val left = invertTree(root.left)
+        val right = invertTree(root.right)
+        root.left = right
+        root.right = left
+        
         return root
-        
     }
 }

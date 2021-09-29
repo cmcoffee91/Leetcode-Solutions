@@ -1,14 +1,9 @@
 class Solution {
     fun findKthLargest(nums: IntArray, k: Int): Int {
+        //[3,2,1,5,6,4] k=2
+        // pq   5 6
         
-        //[3,2,1,5,6,4]
-        // 5 6 
-        
-        val pq = PriorityQueue<Int>()
-        for(num in nums){
-            pq.offer(num)
-            if(pq.size > k)pq.poll()
-        }
-        return pq.peek()
+        nums.sort()
+        return nums[nums.size - k]
     }
 }

@@ -1,18 +1,20 @@
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {
         val map = HashMap<Int, Int>()
-        for(i in 0 until nums.size){
-            val current = nums[i] 
-            val complement = target - current
+        
+        
+        nums.forEachIndexed{ index, num ->
+            val complement = target - num
             if(map.containsKey(complement)){
-                map[complement]?.let{ index ->
-                    return intArrayOf(i, index)
+                map[complement]?.let{
+                    return intArrayOf(it, index)
                 }
             }
             else{
-                map.put(nums[i], i)
+                map.put(num, index)
             }
         }
+        
         return intArrayOf(-1,-1)
     }
 }

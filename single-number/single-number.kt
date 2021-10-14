@@ -1,20 +1,14 @@
 class Solution {
     fun singleNumber(nums: IntArray): Int {
-        val map = HashMap<Int, Int>()
         
-        nums.forEach{ num ->
-            if(map.containsKey(num)){
-                map.get(num)?.let{
-                    map[num] = it + 1
-                }
-            }
-            else{
-                map[num] = 1
-            }
+        val map = mutableMapOf<Int, Int>()
+        
+        nums.forEachIndexed{ index, num ->
+            map[num] = map.getOrDefault(num, 0) + 1
         }
         
-        nums.forEach{ num ->
-            if(map.get(num) == 1) return num
+        for( num in nums ){
+            if(map[num] == 1) return num
         }
         
         return -1

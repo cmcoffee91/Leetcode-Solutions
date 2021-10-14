@@ -4,28 +4,29 @@ class Solution {
         val sArray = s.toLowerCase().toCharArray()
         
         var left = 0
-        var right = sArray.size - 1
-        
-        while(left < right) {
-            val leftVal = sArray[left]
-            val rightVal = sArray[right]
+        var right = sArray.size-1
+
+        while(left < right){
+           var first = sArray[left] 
+           var second = sArray[right] 
+           if(!first.isLetterOrDigit()){
+               left++
+               continue
+           }  
+           if(!second.isLetterOrDigit()){
+               right--
+               continue
+           }  
+           
+           if(first != second) return false
             
-            if( !leftVal.isLetterOrDigit() ){
-                left++
-                continue
-            }
-            else if( !rightVal.isLetterOrDigit() ){
-                right--
-                continue
-            }
-            else if(leftVal != rightVal) {
-               return false 
-            }
-            left++
-            right--
+           left++
+           right--
         }
         
-        return true
+
+        return true;
+
         
     }
 }

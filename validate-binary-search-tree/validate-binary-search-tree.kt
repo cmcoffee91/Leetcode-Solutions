@@ -9,23 +9,26 @@
  * }
  */
 class Solution {
+    
+    var prev: Int? = null
+    
     fun isValidBST(root: TreeNode?): Boolean {
+        return inorder(root)
+    }
+    
+    fun inorder(root:TreeNode?): Boolean{
         
-        val list = ArrayList<Int>()
+        if(root == null) return true
         
-        inorderTraversal(root, list)
-        for(i in 1 until list.size){
-            if(list[i] <= list[i-1]) return false
+        if(!inorder(root?.left)) return false
+        
+        
+        prev?.let{
+            if(it >= root?.`val`) return false
         }
-        return true
         
+        prev = root?.`val`
+        
+        return inorder(root?.right)
     }
-    
-    fun inorderTraversal(root: TreeNode?, list: ArrayList<Int>){
-        if(root == null) return 
-        inorderTraversal(root?.left, list)
-        list.add(root?.`val`)
-        inorderTraversal(root?.right, list)
-    }
-    
 }

@@ -10,10 +10,10 @@
 
 class Solution {
     fun deleteNode(node: ListNode?) {
-        node?.let{ currentNode ->
-            currentNode.`val` = currentNode.next.`val`
-            currentNode.next = currentNode.next.next
-        }
-       
+        
+        node?.`val` = node?.next?.`val`
+        node?.next = node?.next?.next
+        
+        
     }
 }

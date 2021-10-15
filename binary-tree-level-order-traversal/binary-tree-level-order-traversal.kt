@@ -11,30 +11,37 @@
 class Solution {
     fun levelOrder(root: TreeNode?): List<List<Int>> {
         
-        val outerList = ArrayList<List<Int>>()
+        val outerList = ArrayList<ArrayList<Int>>()
         if(root == null) return outerList
         
+        
         val queue = LinkedList<TreeNode>()
-        queue.add(root)
+        
+        queue.offer(root)
         
         while(queue.size > 0){
             val size = queue.size
             val innerList = ArrayList<Int>()
+            
             for(i in 0 until size){
-                val treeNode = queue.poll()
-                treeNode?.let{
-                    innerList.add(treeNode.`val`)
-                    treeNode.left?.let{ leftChild ->
-                        queue.add(leftChild)
-                    }
-                    treeNode.right?.let{ rightChild ->
-                        queue.add(rightChild)
-                    }
-                }
+               val node = queue.poll() 
+               node?.let{
+                   innerList.add(it.`val`)
+                   it.left?.let{ left ->
+                       queue.offer(left)
+                   }
+                   it.right?.let{ right ->
+                       queue.offer(right)
+                   }
+               }
             }
+            
             outerList.add(innerList)
+            
         }
-        
         return outerList
+        
+
+        
     }
 }

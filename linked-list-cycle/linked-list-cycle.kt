@@ -10,22 +10,15 @@
 
 class Solution {
     fun hasCycle(head: ListNode?): Boolean {
-        var set = HashSet<ListNode?>()
         
-        
-        var tmp = head
-        while(tmp != null){
-            if(!set.contains(tmp)){
-                set.add(tmp)
-            }
-            else{
-                return true
-            }
-            tmp = tmp.next
+        var fast = head?.next
+        var slow = head
+        while(fast != null && fast.next != null){
+            if(fast == slow) return true
+            fast = fast?.next?.next
+            slow = slow?.next
         }
         
         return false
-        
-        
     }
 }

@@ -10,40 +10,26 @@
  */
 class Solution {
     fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
-        val pArray = ArrayList<Int>()
-        val qArray = ArrayList<Int>()
-        inorderTraversal(p, pArray)
-        inorderTraversal(q, qArray)
+        val queue = LinkedList<TreeNode?>()
+        queue.offer(p)
+        queue.offer(q)
         
-        if(pArray.size != qArray.size) return false
         
-        for(i in 0 until pArray.size){
-            println("pArray is ${pArray[i]}")
-            println("qArray is ${qArray[i]}")
-            if(pArray[i] != qArray[i]) return false
+        while(queue.size > 0){
+            val one = queue.poll()
+            val two = queue.poll()
+            
+            if(one == null && two == null) continue
+            if(one == null || two == null) return false
+            if(one?.`val` !=  two?.`val`) return false
+            
+            queue.offer(one?.left)
+            queue.offer(two?.left)
+            queue.offer(one?.right)
+            queue.offer(two?.right)
         }
+        
         
         return true
-    }
-    
-    fun inorderTraversal(node: TreeNode?, arrayList: ArrayList<Int>){
-        if(node == null) return
-        node?.let{ treeNode ->
-            if(treeNode.left != null){
-                inorderTraversal(treeNode.left, arrayList)
-            }
-            else{
-                arrayList.add(-1)
-            }
-            
-            if(treeNode.right != null){
-                inorderTraversal(treeNode.right, arrayList)
-            }
-            else{
-                arrayList.add(-1)
-            }
-            arrayList.add(treeNode.`val`)
-        }
-        
     }
 }

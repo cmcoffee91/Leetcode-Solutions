@@ -11,7 +11,6 @@
 class Solution {
     fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
         val queue = LinkedList<TreeNode?>()
-        
         queue.offer(p)
         queue.offer(q)
         
@@ -21,14 +20,15 @@ class Solution {
             
             if(one == null && two == null) continue
             if(one == null || two == null) return false
-            if(one.`val` !=  two.`val`) return false
+            if(one.`val` != two.`val`) return false
             
-            queue.offer(one.left)
-            queue.offer(two.left)
-            queue.offer(one.right)
-            queue.offer(two.right)
+            queue.offer(one?.left)
+            queue.offer(two?.left)
+            queue.offer(one?.right)
+            queue.offer(two?.right)
             
         }
+        
         
         return true
     }

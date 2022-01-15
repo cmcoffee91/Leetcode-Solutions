@@ -4,9 +4,9 @@ class Solution {
         val map = mutableMapOf<Char,Char>()
         val stack = Stack<Char>()
         
-        map['}'] = '{'
         map[']'] = '['
         map[')'] = '('
+        map['}'] = '{'
         
         sArray.forEach{
             if(map.containsKey(it)){
@@ -16,7 +16,9 @@ class Solution {
                 stack.push(it)
             }
         }
+        
         if(stack.isNotEmpty()) return false
+        
         return true
     }
 }

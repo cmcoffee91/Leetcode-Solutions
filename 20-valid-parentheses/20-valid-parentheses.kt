@@ -1,14 +1,14 @@
 class Solution {
     fun isValid(s: String): Boolean {
         val sArray = s.toCharArray()
-        val map = HashMap<Char, Char>()
+        val map = mutableMapOf<Char,Char>()
         val stack = Stack<Char>()
         
         map['}'] = '{'
-        map[')'] = '('
         map[']'] = '['
+        map[')'] = '('
         
-        sArray.forEach{ 
+        sArray.forEach{
             if(map.containsKey(it)){
                 if(stack.isEmpty() || map[it] != stack.pop()) return false
             }
@@ -18,6 +18,5 @@ class Solution {
         }
         if(stack.isNotEmpty()) return false
         return true
-        
     }
 }

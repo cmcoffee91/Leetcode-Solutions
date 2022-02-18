@@ -10,7 +10,6 @@
  */
 class Solution {
     fun kthSmallest(root: TreeNode?, k: Int): Int {
-        val list = ArrayList<Int>()
         val stack = Stack<TreeNode?>()
         
         var temp = root

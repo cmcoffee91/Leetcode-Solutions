@@ -14,6 +14,7 @@ class Solution {
         val stack = Stack<TreeNode?>()
         
         var temp = root
+        var indexToFind = k
         
         while(temp != null || stack.size > 0){
             while( temp != null){
@@ -23,14 +24,12 @@ class Solution {
             temp = stack.pop()
             
             temp?.let{
-                list.add(it.`val`)
+                if(--indexToFind == 0) return it.`val`
             }
             temp = temp?.right
         }
         
-        
-        //inorderTraversal(list, root) 
-        return list[k-1]
+        return -1
     }
     
     fun inorderTraversal(list: ArrayList<Int>, root: TreeNode?){

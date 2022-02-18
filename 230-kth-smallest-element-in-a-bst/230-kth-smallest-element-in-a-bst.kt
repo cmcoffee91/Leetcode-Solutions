@@ -11,7 +11,25 @@
 class Solution {
     fun kthSmallest(root: TreeNode?, k: Int): Int {
         val list = ArrayList<Int>()
-        inorderTraversal(list, root) 
+        val stack = Stack<TreeNode?>()
+        
+        var temp = root
+        
+        while(temp != null || stack.size > 0){
+            while( temp != null){
+               stack.push(temp)
+               temp = temp.left
+            }
+            temp = stack.pop()
+            
+            temp?.let{
+                list.add(it.`val`)
+            }
+            temp = temp?.right
+        }
+        
+        
+        //inorderTraversal(list, root) 
         return list[k-1]
     }
     
